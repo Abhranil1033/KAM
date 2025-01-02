@@ -133,12 +133,12 @@ The Lead Management System is a web application designed to manage and track lea
    - **POST** `/api/v1/restaurants/:id/add-poc`
    - **Request Body:**
      ```json
-    {
-        "restaurant" : "<leadID from  db>",
-        "name": "Jane Doe",
-        "role": "Manager",
-        "contactInfo": "jane.doe@gmail.com"
-    }
+     {
+       "restaurant" : "676be13807ea53c15fd055af",
+       "name": "Jane Doe",
+       "role": "Manager",
+       "contactInfo": "jane.doe@example.com"
+     }
      ```
 
 2. **Get POCs for a lead(restaurant)**
@@ -154,12 +154,12 @@ The Lead Management System is a web application designed to manage and track lea
    - **POST** `/api/v1/restaurants/:id/add-call-details`
    - **Request Body:**
      ```json
-    {
-        "callTo": "<POC id from DB>",
+     {
+        "callTo": "<poc id from db>",
         "callSummary": "Discussed new order discounts",
         "rating": 1,
-        "callDate": "<Today's date>"
-    }
+        "callDate": "2025-01-02"
+     }
      ```
 
 3. **Get leads to be called today**
@@ -169,4 +169,4 @@ The Lead Management System is a web application designed to manage and track lea
 
 ## Sample Usage Examples
 
-Try out these routes in postman to verufy the results.
+Try out these routes in postman to verify the results.

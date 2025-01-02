@@ -2,6 +2,7 @@ import { asyncHandler } from "../utils/asyncHandler.js"
 import { ApiError } from "../utils/apiError.js"
 import { ApiResponse } from "../utils/apiResponse.js"
 import { Restaurant } from "../models/restaurant.model.js"
+import { User } from "../models/user.model.js"
 
 const calculatePerformanceRating = (totalOrders, averageOrderFrequency, lastOrderDate) => {
     const daysSinceLastOrder = lastOrderDate
@@ -27,18 +28,23 @@ const createLead = asyncHandler(async (req, res) => {
         throw new ApiError(400, "Some fields are empty")
     }
 
+    const kam = await User.findById(assignedKAM).select("_id username fullname");
+    if (!kam) {
+        throw new ApiError(404, "Assigned KAM does not exist");
+    }
+
     const restaurant = await Restaurant.create({
         restaurantName,
         address,
         status,
-        assignedKAM,
+        assignedKAM : kam._id,
         totalOrders: 0,
         lastOrderDate: null,
         averageOrderFrequency: null,
         performanceRating: 1
     })
 
-    const createdLead = await Restaurant.findById(restaurant._id)
+    const createdLead = await Restaurant.findById(restaurant._id).populate("assignedKAM", "username fullname email");
 
     if (!createdLead) {
         throw new ApiError(500, "Registration unsuccessful")

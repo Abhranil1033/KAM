@@ -16,7 +16,8 @@ const restaurantSchema = new Schema({
         default: 'new',
     },
     assignedKAM: {
-        type: String, // You can also use ObjectId if you have a User/KAM model
+        type:  mongoose.Schema.Types.ObjectId,
+        ref : "User",
         required: true,
     },
     totalOrders:{

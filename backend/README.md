@@ -48,7 +48,7 @@ The Lead Management System is a web application designed to manage and track lea
 2. **Access the Application:**
    - The server will start at `http://localhost:8000`.
 
-## Test Execution Guide
+<!-- ## Test Execution Guide
 
 1. **Install Testing Dependencies:**
    - If you have unit or integration tests, ensure dependencies like `jest` or `mocha` are installed:
@@ -58,8 +58,8 @@ The Lead Management System is a web application designed to manage and track lea
 
 2. **Run Tests:**
    ```bash
-   npm test
-   ```
+   npm test -->
+   <!-- ``` -->
 
 ## API Documentation
 

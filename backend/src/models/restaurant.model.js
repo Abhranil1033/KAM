@@ -12,7 +12,7 @@ const restaurantSchema = new Schema({
     },
     status:{
         type: String,
-        enum: ['new', 'in-progress', 'closed'], // Status options
+        enum: ['new', 'in-progress', 'closed'],
         default: 'new',
     },
     assignedKAM: {
@@ -28,14 +28,8 @@ const restaurantSchema = new Schema({
         type : Date,
         default : null,
     },
-    averageOrderFrequency: {
-        type : Number,
-        default : null
-    },
     performanceRating : {
         type : Number,
-        min : 1,
-        max : 5,
         default : null
     }
 },

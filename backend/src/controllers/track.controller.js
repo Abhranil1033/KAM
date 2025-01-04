@@ -107,5 +107,4 @@ const getLeadsToCallToday = asyncHandler(async (req, res) => {
 });
 
 
-
 export {getLeadWiseCallDetails,addLeadWiseCallDetails,getLeadsToCallToday}

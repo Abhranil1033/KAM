@@ -5,20 +5,18 @@ import { Restaurant } from "../models/restaurant.model.js";
 import { POC } from "../models/poc.model.js";
 
 const addPOC = asyncHandler(async (req, res) => {
-    const { id } = req.params; // Restaurant ID
+    const { id } = req.params; 
     const { name, role, contactInfo } = req.body;
 
     if (!name || !role || !contactInfo) {
         throw new ApiError(400, "All POC fields are required");
     }
 
-    // Check if the restaurant exists
     const restaurant = await Restaurant.findById(id);
     if (!restaurant) {
         throw new ApiError(404, "Restaurant not found");
     }
 
-    // Create a new POC
     const poc = await POC.create({
         restaurant: id,
         name,
